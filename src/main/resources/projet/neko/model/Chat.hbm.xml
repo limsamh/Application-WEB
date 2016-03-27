@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27 mars 2016 17:00:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="projet.neko.model.Chat" table="chat" catalog="neko" optimistic-lock="version">
+        <id name="idChat" type="java.lang.Integer">
+            <column name="id_chat" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="utilisateur" class="projet.neko.model.Utilisateur" fetch="select">
+            <column name="id_utilisateur" />
+        </many-to-one>
+        <property name="nomChat" type="string">
+            <column name="nom_chat" length="30" not-null="true" />
+        </property>
+        <property name="nomJaponnais" type="string">
+            <column name="nom_japonnais" length="30" not-null="true" />
+        </property>
+        <property name="couleur" type="string">
+            <column name="couleur" length="20" not-null="true" />
+        </property>
+        <property name="niveau" type="int">
+            <column name="niveau" not-null="true" />
+        </property>
+        <property name="caractere" type="string">
+            <column name="caractere" length="65535" not-null="true" />
+        </property>
+        <set name="astuces" table="astuce" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_chat" not-null="true" />
+            </key>
+            <one-to-many class="projet.neko.model.Astuce" />
+        </set>
+    </class>
+</hibernate-mapping>
