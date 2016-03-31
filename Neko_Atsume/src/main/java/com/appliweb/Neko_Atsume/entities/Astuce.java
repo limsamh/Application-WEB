@@ -1,5 +1,5 @@
 package com.appliweb.Neko_Atsume.entities;
-// Generated 31 mars 2016 05:18:15 by Hibernate Tools 4.3.1.Final
+// Generated 31 mars 2016 05:25:33 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
