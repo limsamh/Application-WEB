@@ -1,16 +1,12 @@
 package com.appliweb.Neko_Atsume.entities;
-// Generated 29 mars 2016 22:06:27 by Hibernate Tools 4.3.1.Final
+// Generated 31 mars 2016 05:18:15 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,99 +17,51 @@ import javax.persistence.Table;
 @Table(name = "utilisateur", catalog = "neko")
 public class Utilisateur implements java.io.Serializable {
 
-	private Integer idUtilisateur;
-	private TypeUtilisateur typeUtilisateur;
-	private String pseudo;
-	private String motDePasse;
-	private String adresseMail;
-	private Set<Chat> chats = new HashSet<Chat>(0);
-	private Set<Astuce> astuces = new HashSet<Astuce>(0);
+	private String login;
+	private String motdepasse;
+	private Set<Compte> comptes = new HashSet<Compte>(0);
 
 	public Utilisateur() {
 	}
 
-	public Utilisateur(TypeUtilisateur typeUtilisateur, String pseudo, String motDePasse, String adresseMail) {
-		this.typeUtilisateur = typeUtilisateur;
-		this.pseudo = pseudo;
-		this.motDePasse = motDePasse;
-		this.adresseMail = adresseMail;
+	public Utilisateur(String login, String motdepasse) {
+		this.login = login;
+		this.motdepasse = motdepasse;
 	}
 
-	public Utilisateur(TypeUtilisateur typeUtilisateur, String pseudo, String motDePasse, String adresseMail,
-			Set<Chat> chats, Set<Astuce> astuces) {
-		this.typeUtilisateur = typeUtilisateur;
-		this.pseudo = pseudo;
-		this.motDePasse = motDePasse;
-		this.adresseMail = adresseMail;
-		this.chats = chats;
-		this.astuces = astuces;
+	public Utilisateur(String login, String motdepasse, Set<Compte> comptes) {
+		this.login = login;
+		this.motdepasse = motdepasse;
+		this.comptes = comptes;
 	}
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
 
-	@Column(name = "id_utilisateur", unique = true, nullable = false)
-	public Integer getIdUtilisateur() {
-		return this.idUtilisateur;
+	@Column(name = "login", unique = true, nullable = false, length = 30)
+	public String getLogin() {
+		return this.login;
 	}
 
-	public void setIdUtilisateur(Integer idUtilisateur) {
-		this.idUtilisateur = idUtilisateur;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_type", nullable = false)
-	public TypeUtilisateur getTypeUtilisateur() {
-		return this.typeUtilisateur;
+	@Column(name = "motdepasse", nullable = false, length = 30)
+	public String getMotdepasse() {
+		return this.motdepasse;
 	}
 
-	public void setTypeUtilisateur(TypeUtilisateur typeUtilisateur) {
-		this.typeUtilisateur = typeUtilisateur;
-	}
-
-	@Column(name = "pseudo", nullable = false, length = 30)
-	public String getPseudo() {
-		return this.pseudo;
-	}
-
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
-	}
-
-	@Column(name = "mot_de_passe", nullable = false, length = 30)
-	public String getMotDePasse() {
-		return this.motDePasse;
-	}
-
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
-	}
-
-	@Column(name = "adresse_mail", nullable = false, length = 100)
-	public String getAdresseMail() {
-		return this.adresseMail;
-	}
-
-	public void setAdresseMail(String adresseMail) {
-		this.adresseMail = adresseMail;
+	public void setMotdepasse(String motdepasse) {
+		this.motdepasse = motdepasse;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "utilisateur")
-	public Set<Chat> getChats() {
-		return this.chats;
+	public Set<Compte> getComptes() {
+		return this.comptes;
 	}
 
-	public void setChats(Set<Chat> chats) {
-		this.chats = chats;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "utilisateur")
-	public Set<Astuce> getAstuces() {
-		return this.astuces;
-	}
-
-	public void setAstuces(Set<Astuce> astuces) {
-		this.astuces = astuces;
+	public void setComptes(Set<Compte> comptes) {
+		this.comptes = comptes;
 	}
 
 }

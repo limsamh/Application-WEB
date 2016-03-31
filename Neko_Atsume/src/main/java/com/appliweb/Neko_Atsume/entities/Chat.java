@@ -1,16 +1,12 @@
 package com.appliweb.Neko_Atsume.entities;
-// Generated 29 mars 2016 22:06:27 by Hibernate Tools 4.3.1.Final
+// Generated 31 mars 2016 05:18:15 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,36 +17,28 @@ import javax.persistence.Table;
 @Table(name = "chat", catalog = "neko")
 public class Chat implements java.io.Serializable {
 
-	private Integer idChat;
-	private Utilisateur utilisateur;
+	private int idChat;
 	private String image;
 	private String nomChat;
 	private String nomJaponnais;
 	private String description;
 	private String caractere;
-	private int niveau;
+	private Integer niveau;
 	private String memento;
 	private String typeChat;
+	private Set<Compte> comptes = new HashSet<Compte>(0);
 	private Set<Astuce> astuces = new HashSet<Astuce>(0);
 
 	public Chat() {
 	}
 
-	public Chat(String image, String nomChat, String nomJaponnais, String description, String caractere, int niveau,
-			String memento, String typeChat) {
-		this.image = image;
-		this.nomChat = nomChat;
-		this.nomJaponnais = nomJaponnais;
-		this.description = description;
-		this.caractere = caractere;
-		this.niveau = niveau;
-		this.memento = memento;
-		this.typeChat = typeChat;
+	public Chat(int idChat) {
+		this.idChat = idChat;
 	}
 
-	public Chat(Utilisateur utilisateur, String image, String nomChat, String nomJaponnais, String description,
-			String caractere, int niveau, String memento, String typeChat, Set<Astuce> astuces) {
-		this.utilisateur = utilisateur;
+	public Chat(int idChat, String image, String nomChat, String nomJaponnais, String description, String caractere,
+			Integer niveau, String memento, String typeChat, Set<Compte> comptes, Set<Astuce> astuces) {
+		this.idChat = idChat;
 		this.image = image;
 		this.nomChat = nomChat;
 		this.nomJaponnais = nomJaponnais;
@@ -59,32 +47,22 @@ public class Chat implements java.io.Serializable {
 		this.niveau = niveau;
 		this.memento = memento;
 		this.typeChat = typeChat;
+		this.comptes = comptes;
 		this.astuces = astuces;
 	}
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "id_chat", unique = true, nullable = false)
-	public Integer getIdChat() {
+	public int getIdChat() {
 		return this.idChat;
 	}
 
-	public void setIdChat(Integer idChat) {
+	public void setIdChat(int idChat) {
 		this.idChat = idChat;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_utilisateur")
-	public Utilisateur getUtilisateur() {
-		return this.utilisateur;
-	}
-
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
-	}
-
-	@Column(name = "image", nullable = false, length = 100)
+	@Column(name = "image", length = 10)
 	public String getImage() {
 		return this.image;
 	}
@@ -93,7 +71,7 @@ public class Chat implements java.io.Serializable {
 		this.image = image;
 	}
 
-	@Column(name = "nom_chat", nullable = false, length = 30)
+	@Column(name = "nom_chat", length = 18)
 	public String getNomChat() {
 		return this.nomChat;
 	}
@@ -102,7 +80,7 @@ public class Chat implements java.io.Serializable {
 		this.nomChat = nomChat;
 	}
 
-	@Column(name = "nom_japonnais", nullable = false, length = 30)
+	@Column(name = "nom_japonnais", length = 24)
 	public String getNomJaponnais() {
 		return this.nomJaponnais;
 	}
@@ -111,7 +89,7 @@ public class Chat implements java.io.Serializable {
 		this.nomJaponnais = nomJaponnais;
 	}
 
-	@Column(name = "description", nullable = false, length = 30)
+	@Column(name = "description", length = 20)
 	public String getDescription() {
 		return this.description;
 	}
@@ -120,7 +98,7 @@ public class Chat implements java.io.Serializable {
 		this.description = description;
 	}
 
-	@Column(name = "caractere", nullable = false, length = 65535)
+	@Column(name = "caractere", length = 16)
 	public String getCaractere() {
 		return this.caractere;
 	}
@@ -129,16 +107,16 @@ public class Chat implements java.io.Serializable {
 		this.caractere = caractere;
 	}
 
-	@Column(name = "niveau", nullable = false)
-	public int getNiveau() {
+	@Column(name = "niveau")
+	public Integer getNiveau() {
 		return this.niveau;
 	}
 
-	public void setNiveau(int niveau) {
+	public void setNiveau(Integer niveau) {
 		this.niveau = niveau;
 	}
 
-	@Column(name = "memento", nullable = false, length = 50)
+	@Column(name = "memento", length = 10)
 	public String getMemento() {
 		return this.memento;
 	}
@@ -147,13 +125,22 @@ public class Chat implements java.io.Serializable {
 		this.memento = memento;
 	}
 
-	@Column(name = "type_chat", nullable = false, length = 50)
+	@Column(name = "type_chat", length = 12)
 	public String getTypeChat() {
 		return this.typeChat;
 	}
 
 	public void setTypeChat(String typeChat) {
 		this.typeChat = typeChat;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "chat")
+	public Set<Compte> getComptes() {
+		return this.comptes;
+	}
+
+	public void setComptes(Set<Compte> comptes) {
+		this.comptes = comptes;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "chat")
