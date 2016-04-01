@@ -7,10 +7,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Connexion</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/style1.css" rel="stylesheet" type="text/css" />
 </head>
 
 
 <body>
+<ul>
+    <li><a href="Acceuil.jsp">Accueil</a></li>
+    
+    <li><a href=#>Aide</a></li>
+    <li><a href="login.jsp">Connexion</a></li>
+</ul>
 <form method="post" action="LoginServlet">
 <div style="padding: 100px 0 0 250px;">
 <div id="login-box">

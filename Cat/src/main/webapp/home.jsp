@@ -11,25 +11,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link href="css/style1.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<title>Dashboard</title>
 </head>
 
 <body>
+
+<ul>
+    <li><a href="Acceuil.jsp">Accueil</a></li>
+    
+    <li><a href=#>Aide</a></li>
+    <li><a href="login.jsp">Connexion</a></li>
+</ul>
 <center>
 <div id="container">
         <p> 
              <%=new Date()%><br/>
              
              <%
-                 Utilisateur cp = (Utilisateur) session.getAttribute("user");
+                 Utilisateur user = (Utilisateur) session.getAttribute("user");
              %>   
                
-             <b> Bienvenue <%= cp.getLogin() %></b>
-            
+             
+            <b> Bienvenu <%=user.getLogin()%></b>
              <a href="logout.jsp">Logout</a>
       <p>
 
-<h1 align="center"> liste de tous les Chats</h1>
+<h1 align="center"> Liste des Chats</h1>
 	<table>
              <thead>
                  <tr>
@@ -38,7 +47,8 @@
                      <th>nom japonnais</th>
                      <th>niveau</th>
                      <th>description</th>
-                     <th>caractere</th>                
+                     <th>caractere</th> 
+                     <th></th>              
                  </tr>
              </thead>
              <tbody>
@@ -51,12 +61,13 @@
                   %>
                  
                  <tr>
-                    <td>  <img src="/<%=u.getImage()%>"/></td>
+                    <td>  <img src="<%=u.getImage()%> "/></td>
                     <td><%=u.getNomChat()%></td>
                     <td><%=u.getNomJaponnais()%></td>
                      <td><%=u.getNiveau()%></td>
                      <td><%=u.getCaractere()%></td>
                      <td><%=u.getDescription()%></td>
+                     <td><a href=#>Details</a></td>
                  </tr>
                  	
                  <%}%>
