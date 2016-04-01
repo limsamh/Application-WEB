@@ -32,10 +32,10 @@ public class LoginServlet extends HttpServlet
 		
 		if (result == true)
 		{
-//			req.getSession().setAttribute("user", user);
-//			res.sendRedirect("home.jsp");
+		req.getSession().setAttribute("user", user);
+			res.sendRedirect("home.jsp");
 			
-			this.getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
+			//this.getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
 		}else
 		{
 			message = "Informations non valides";

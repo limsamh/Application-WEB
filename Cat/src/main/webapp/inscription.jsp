@@ -5,13 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="ins.css" />
+<link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
 
 
 <form action="InscriptionServlet" method="POST">
+<div style="padding: 100px 0 0 250px;">
             <fieldset>
                 <legend>Inscription</legend>
                 <table border="0">
@@ -39,6 +40,7 @@
  
                 </table>
             </fieldset>
+            </div>
         </form>
  
 

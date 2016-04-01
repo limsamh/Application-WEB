@@ -1,26 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html dir="ltr" lang="en-US"><head>
-    <meta charset="utf-8">
-    <title>Connexion</title>
-    <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
-
-    <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/style1.css" media="screen">
-    <!--[if lte IE 7]><link rel="stylesheet" href="css/style.ie7.css" media="screen" /><![endif]-->
-    <link rel="stylesheet" href="css/style.responsive.css" media="all">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo|PT+Sans&amp;subset=latin">
-
-    <script src="jquery.js"></script>
-    <script src="script.js"></script>
-    <script src="script.responsive.js"></script>
-<meta name="description" content="Description">
-<meta name="keywords" content="Keywords">
-
-
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Connexion</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
+
+
 <body>
 <form method="post" action="LoginServlet">
 <div style="padding: 100px 0 0 250px;">
@@ -40,7 +29,7 @@ Nouvel utilisateur?  <a href="inscription.jsp" style="margin-left:30px;">Inscri
 </span>
 <br />
 <br />
-<input style="margin-left:100px;" type="submit" value="Login" />
+<input style="margin-left:100px;" type="submit" value="Valider" />
 </div>
 </div>
 </form>

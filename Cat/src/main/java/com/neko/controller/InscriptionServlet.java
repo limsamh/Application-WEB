@@ -22,11 +22,13 @@ public class InscriptionServlet extends HttpServlet
 			InscriptionService inscription = new InscriptionService();
 			boolean rs = inscription.enregistrer(use);
 			if(rs){
-	             out.println("<h1 Bienvenue</h1>"+login);
-	             out.println("Connectez-vous avec vos nouveau identifiant <a href=index.jsp>Click here</a>");
+	             out.println("<h1> Bienvenue</h1> "+ login );
+	             out.println("<br/>Connectez-vous avec vos nouveaux identifiants <br/>"
+	             		+ "<a href=login.jsp>Connexion</a>");
 	         }else{
-	             out.println("<h1>Registration Failed</h1>");
-	             out.println("To try again<a href=inscription.jsp>Click here</a>");
+	             out.println("<h2>Echec Inscription Données invalides </h2>"
+	             		+ "<br/>");
+	             out.println("<a href=inscription.jsp>Retour</a>");
 		}
 	
 		}finally
