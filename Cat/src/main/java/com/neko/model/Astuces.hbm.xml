@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 31 mars 2016 00:28:38 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.neko.model.Astuces" table="astuces" catalog="bd" optimistic-lock="version">
+        <id name="idAstuces" type="java.lang.Integer">
+            <column name="id_astuces" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="chat" class="com.neko.model.Chat" fetch="select">
+            <column name="nom_chat" length="100" not-null="true" />
+        </many-to-one>
+        <many-to-one name="utilisateur" class="com.neko.model.Utilisateur" fetch="select">
+            <column name="login" length="30" not-null="true" />
+        </many-to-one>
+        <property name="commentaire" type="string">
+            <column name="commentaire" length="300" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
