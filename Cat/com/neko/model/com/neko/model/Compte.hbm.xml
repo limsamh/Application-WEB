@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2 avr. 2016 23:23:44 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.neko.model.Compte" table="compte" catalog="chatbd" optimistic-lock="version">
+        <id name="login" type="string">
+            <column name="login" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="utilisateur" class="com.neko.model.Utilisateur" fetch="select">
+            <column name="idutilisateur" not-null="true" />
+        </many-to-one>
+        <property name="motdepasse" type="string">
+            <column name="motdepasse" length="30" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="40" not-null="true" />
+        </property>
+        <set name="astuceses" table="astuces" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="login" length="20" not-null="true" />
+            </key>
+            <one-to-many class="com.neko.model.Astuces" />
+        </set>
+        <set name="chats" table="chat" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="login" length="20" />
+            </key>
+            <one-to-many class="com.neko.model.Chat" />
+        </set>
+    </class>
+</hibernate-mapping>

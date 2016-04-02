@@ -35,9 +35,10 @@ public class LoginServlet extends HttpServlet
 //		} catch (Exception e) {
 //			// TODO: handle exception
 //		}
-		boolean result = loginService.seconnecter(login, motdepasse);
 		
 		
+		try {
+			boolean result = loginService.seconnecter(login, motdepasse);
 		Compte user = loginService.recupererUtilisateur(login);
 		
 		if (result == true)
@@ -45,10 +46,15 @@ public class LoginServlet extends HttpServlet
 		req.getSession().setAttribute("user", user);
 			res.sendRedirect("home.jsp");
 			
-			//this.getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
+//			this.getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
 		}else
 		{
 			message = "Informations non valides";
 	    }
+		}
+		catch(Exception e)
+		{
+			System.out.println("blallaalall"+e.getMessage());
+		}
 }
 }
