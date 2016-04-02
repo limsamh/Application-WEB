@@ -62,11 +62,11 @@ public class Compte implements java.io.Serializable {
 		this.login = login;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idutilisateur", nullable = false, columnDefinition ="int default 2")
-	public Utilisateur getUtilisateur() {
-		return this.utilisateur;
-	}
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "idutilisateur", nullable = false, columnDefinition ="2")
+//	public Utilisateur getUtilisateur() {
+//		return this.utilisateur;
+//	}
 
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;

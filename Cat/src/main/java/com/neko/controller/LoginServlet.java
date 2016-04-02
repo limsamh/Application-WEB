@@ -29,12 +29,12 @@ public class LoginServlet extends HttpServlet
 		String motdepasse = req.getParameter("motdepasse");
 		LoginService loginService = new LoginService();
 		
-//	try {
-//				motdepasse = Crypto.encrypt(motdepasse);
-//			
-//	} catch (Exception e) {
-//		}
-//		
+	try {
+			motdepasse = Crypto.encrypt(motdepasse);
+			
+	} catch (Exception e) {
+		}
+		
 		
 		try {
 			boolean result = loginService.seconnecter(login, motdepasse);

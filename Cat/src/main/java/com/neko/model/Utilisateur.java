@@ -56,13 +56,13 @@ public class Utilisateur implements java.io.Serializable {
 		this.droit = droit;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "utilisateur")
-	public Set<Compte> getComptes() {
-		return this.comptes;
-	}
-
-	public void setComptes(Set<Compte> comptes) {
-		this.comptes = comptes;
-	}
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "utilisateur")
+//	public Set<Compte> getComptes() {
+//		return this.comptes;
+//	}
+//
+//	public void setComptes(Set<Compte> comptes) {
+//		this.comptes = comptes;
+//	}
 
 }

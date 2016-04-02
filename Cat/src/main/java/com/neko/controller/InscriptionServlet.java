@@ -17,11 +17,11 @@ public class InscriptionServlet extends HttpServlet
 		String login = req.getParameter("login");
 		String motdepasse = req.getParameter("motdepasse");
 		String email = req.getParameter("email");
-//		try 
-//		{
-//			motdepasse =Crypto.encrypt(motdepasse);
-//		} catch (Exception e) {			// TODO: handle exception
-//		}
+		try 
+		{
+			motdepasse =Crypto.encrypt(motdepasse);
+		} catch (Exception e) {			// TODO: handle exception
+	}
 		
 		 PrintWriter out = res.getWriter();
 		Compte use = new Compte(login,motdepasse,email);
@@ -35,11 +35,12 @@ public class InscriptionServlet extends HttpServlet
 	             out.println("<br/>Connectez-vous avec vos nouveaux identifiants <br/>"
 	             		+ "<a href=login.jsp>Connexion</a>");
 	         }else{
-	             out.println("<h2>Echec Inscription Données invalides </h2>"
-	             		+ "<br/>");
-	             out.println("<a href=inscription.jsp>Retour</a>");
+	        	 throw new Exception( "Merci de saisir votre mot de passe." );
 		}
 	
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}finally
 		{
 			out.close();
