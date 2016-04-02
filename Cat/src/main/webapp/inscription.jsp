@@ -37,12 +37,12 @@
   </header>
 <!-- Fin barre de navigation -->
 
-<!-- Formulaire d'inscription -->
+
 <div class="row">
 
   <div class="eightcol last">
 
-    <!-- Begin Form -->
+    <!-- Formulaire d'inscription -->
 
     <form action="InscriptionServlet" method="POST">
 
