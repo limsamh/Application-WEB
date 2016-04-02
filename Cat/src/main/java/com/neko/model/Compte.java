@@ -63,7 +63,7 @@ public class Compte implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idutilisateur", nullable = false)
+	@JoinColumn(name = "idutilisateur", nullable = false, columnDefinition ="int default 2")
 	public Utilisateur getUtilisateur() {
 		return this.utilisateur;
 	}

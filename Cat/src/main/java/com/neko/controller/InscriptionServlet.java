@@ -20,10 +20,9 @@ public class InscriptionServlet extends HttpServlet
 //		try 
 //		{
 //			motdepasse =Crypto.encrypt(motdepasse);
-//		} catch (Exception e) {
-//			// TODO: handle exception
+//		} catch (Exception e) {			// TODO: handle exception
 //		}
-//		
+		
 		 PrintWriter out = res.getWriter();
 		Compte use = new Compte(login,motdepasse,email);
 		

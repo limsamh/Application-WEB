@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.neko.model.Compte;
-import com.neko.model.Utilisateur;
 import com.neko.util.HibernateUtil;
 public class InscriptionService 
 {
@@ -21,7 +20,7 @@ public class InscriptionService
 			tx.begin();
 			
 			Query sql =session.createQuery("from Compte where login ='"+user.getLogin()+"'");
-			Utilisateur ut = (Utilisateur)sql.uniqueResult();
+			Compte ut = (Compte)sql.uniqueResult();
 			tx.commit();
 			if (ut!=null)
 			{

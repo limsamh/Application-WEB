@@ -44,7 +44,7 @@ public class Utilisateur implements java.io.Serializable {
 	}
 
 	public void setIdutilisateur(Integer idutilisateur) {
-		this.idutilisateur = idutilisateur;
+		this.idutilisateur = 2;
 	}
 
 	@Column(name = "droit", nullable = false, length = 30)

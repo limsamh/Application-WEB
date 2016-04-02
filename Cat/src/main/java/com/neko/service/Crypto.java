@@ -1,6 +1,5 @@
 package com.neko.service;
 
-import org.jasypt.util.text.BasicTextEncryptor;
 import java.security.Key;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
