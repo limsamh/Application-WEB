@@ -1,5 +1,6 @@
 package com.neko.controller;
 import com.neko.service.Crypto;
+import com.neko.model.Compte;
 import com.neko.model.Utilisateur;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,22 +9,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.neko.service.InscriptionService;
 import javax.servlet.ServletException;
+
 public class InscriptionServlet extends HttpServlet
 {
 	public void doPost (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
-		Crypto c = new Crypto();
 		String login = req.getParameter("login");
 		String motdepasse = req.getParameter("motdepasse");
-		try 
-		{
-			motdepasse =c.encrypt(motdepasse);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
+		String email = req.getParameter("email");
+//		try 
+//		{
+//			motdepasse =Crypto.encrypt(motdepasse);
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		
 		 PrintWriter out = res.getWriter();
-		Utilisateur use = new Utilisateur(login, motdepasse);
+		Compte use = new Compte(login,motdepasse,email);
 		
 		try
 		{

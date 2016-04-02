@@ -4,12 +4,13 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.neko.model.Compte;
 import com.neko.model.Utilisateur;
 import com.neko.util.HibernateUtil;
 public class InscriptionService 
 {
 	
-	public boolean utilisateurexist(Utilisateur user)
+	public boolean utilisateurexist(Compte user)
 	{
 		Session session = HibernateUtil.openSession();
 		boolean result = false;
@@ -19,7 +20,7 @@ public class InscriptionService
 			tx = session.getTransaction();
 			tx.begin();
 			
-			Query sql =session.createQuery("from Utilisateur where login ='"+user.getLogin()+"'");
+			Query sql =session.createQuery("from Compte where login ='"+user.getLogin()+"'");
 			Utilisateur ut = (Utilisateur)sql.uniqueResult();
 			tx.commit();
 			if (ut!=null)
@@ -39,7 +40,7 @@ public class InscriptionService
 			return result;
 	}
 	
-	public boolean enregistrer (Utilisateur user)
+	public boolean enregistrer (Compte user)
 	{
 		Session session = HibernateUtil.openSession();
 		

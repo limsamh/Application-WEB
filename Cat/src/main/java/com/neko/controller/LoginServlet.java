@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.neko.service.Crypto;
 import com.neko.service.LoginService;
+import com.neko.model.Compte;
 import com.neko.model.Utilisateur;
 
 import java.io.PrintWriter;
@@ -28,16 +29,16 @@ public class LoginServlet extends HttpServlet
 		String motdepasse = req.getParameter("motdepasse");
 		LoginService loginService = new LoginService();
 		
-		try {
-				motdepasse = Crypto.encrypt(motdepasse);
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+//		try {
+//				motdepasse = Crypto.encrypt(motdepasse);
+//			
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
 		boolean result = loginService.seconnecter(login, motdepasse);
 		
 		
-		Utilisateur user = loginService.recupererUtilisateur(login);
+		Compte user = loginService.recupererUtilisateur(login);
 		
 		if (result == true)
 		{

@@ -1,22 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 31 mars 2016 00:28:38 by Hibernate Tools 4.3.1.Final -->
+<!-- Generated 2 avr. 2016 23:22:50 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
-    <class name="com.neko.model.Utilisateur" table="utilisateur" catalog="bd" optimistic-lock="version">
-        <id name="login" type="string">
-            <column name="login" length="30" />
-            <generator class="assigned" />
+    <class name="com.neko.model.Utilisateur" table="utilisateur" catalog="chatbd" optimistic-lock="version">
+        <id name="idutilisateur" type="java.lang.Integer">
+            <column name="idutilisateur" />
+            <generator class="identity" />
         </id>
-        <property name="modepasse" type="string">
-            <column name="modepasse" length="30" not-null="true" />
+        <property name="droit" type="string">
+            <column name="droit" length="30" not-null="true" />
         </property>
-        <one-to-one name="compte" class="com.neko.model.Compte"></one-to-one>
-        <set name="astuceses" table="astuces" inverse="true" lazy="true" fetch="select">
+        <set name="comptes" table="compte" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="login" length="30" not-null="true" />
+                <column name="idutilisateur" not-null="true" />
             </key>
-            <one-to-many class="com.neko.model.Astuces" />
+            <one-to-many class="com.neko.model.Compte" />
         </set>
     </class>
 </hibernate-mapping>
