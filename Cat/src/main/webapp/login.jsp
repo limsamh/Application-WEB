@@ -7,25 +7,32 @@
 <title>Connexion</title>
 <!-- CSS -->
 
-<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/supersized.css">
-		<link rel="stylesheet" href="css/style2.css">
+<link href="css/style3.css" rel="stylesheet" type="text/css" />
+<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link href="css/supersized.css" rel="stylesheet" type="text/css" />
+<link href="css/style2.css" rel="stylesheet" type="text/css" />
 
-			<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-			<!--[if lt IE 9]>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+
 </head>
 
 
 <body>
-	<ul>
-		<li><a href="Acceuil.jsp">Accueil</a></li>
-
-		<li><a href=#>Aide</a></li>
-		<li><a href="login.jsp">Connexion</a></li>
-	</ul>
-
+	<!-- Barre de navigation  -->
+	<header>
+		<div class="nav">
+			<ul>
+				<li><a href="Acceuil.jsp">Accueil</a></li>
+				<li><a href="#">Aide</a></li>
+				<li><a class="active" href="login.jsp">Connexion</a></li>
+			</ul>
+		</div>
+	</header>
+	<!-- Fin barre de navigation -->
 
 	<div class="page-container">
 		<h1>Authentification</h1>
@@ -43,7 +50,7 @@
 
 	</div>
 
-<!-- 
+	<!-- 
 	<form method="post" action="LoginServlet">
 		<div style="padding: 100px 0 0 250px;">
 			<div id="login-box">

@@ -7,16 +7,20 @@
      <title>logout Page</title>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/style1.css" rel="stylesheet" type="text/css" />
+<link href="css/style3.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<ul>
-    <li><a href="Acceuil.jsp">Accueil</a></li>
-    
-    <li><a href=#>Aide</a></li>
-    <li><a href="login.jsp">Connexion</a></li>
-</ul>
-
+<!-- Barre de navigation  -->
+<header>
+    <div class="nav">
+      <ul>
+        <li><a href="Acceuil.jsp">Accueil</a></li>
+       <li><a href="#">Aide</a></li>
+       <li><a href="login.jsp">Connexion</a></li>
+      </ul>
+    </div>
+  </header>
+<!-- Fin barre de navigation -->
 
 
      <%     
