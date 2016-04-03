@@ -1,47 +1,28 @@
 html{
-    background: #FFF8DC;
+    background: #FF6600
     font: 1.1em sans-serif;
 }
 
-p, h1, form, button{border:0; margin:0; padding:0;}
-.spacer{clear:both; height:1px;}
-.mainform{
-margin:0 auto;
-width:400px;
-padding:14px;
-}
+
+
+/* Disponible pour affichage liste chats*/
  
 #container{
 border:solid 2px burlywood;
-background: silver;
+
 border-radius: 5px;
 }
 #container h1 {
-font-size:14px;
+font-size:30px;
 font-weight:bold;
 margin-bottom:8px;
 }
 #container p{
-font-size:11px;
+font-size:20px;
 color:#666666;
 margin-bottom:20px;
 border-bottom:solid 1px burlywood;
 padding-bottom:10px;
-}
-#container label{
-display:block;
-font-weight:bold;
-text-align:right;
-width:140px;
-float:left;
-}
-#container .small{
-color:#666666;
-display:block;
-font-size:11px;
-font-weight:normal;
-text-align:right;
-width:140px;
 }
 
 

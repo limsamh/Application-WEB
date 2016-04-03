@@ -54,10 +54,23 @@
 		display: block;
 		transition: .3s background-color;
 	}
+	
+	.dropdown-content li {
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.2em;
+	line-height: 40px;
+	width:165px;
+	height: 40px;
+	border-bottom: 1px solid #888;
+	
+	
+}
+
 	/* Change color of dropdown links on hover */
 	.dropdown-content a:hover {
 		background-color: #005f5f;
 	}
+	
 	.dropdown {
 		position: relative;
 		display: inline-block;
@@ -65,25 +78,13 @@
 	/* Show the dropdown menu on hover */
 	.dropdown:hover .dropdown-content {
 		display: block;
+		
 	}
 
-	/* Option 1 - Display Inline */
+	/* Display Inline */
 	.nav li {
 		display: inline-block;
 		margin-right: -4px;
 	}
 
-	/* Options 2 - Float
-  .nav li {
-    float: left;
-  }
-  .nav ul {
-    overflow: auto;
-    width: 600px;
-    margin: 0 auto;
-  }
-  .nav {
-    background-color: #444;
-  }
-  */
 }
