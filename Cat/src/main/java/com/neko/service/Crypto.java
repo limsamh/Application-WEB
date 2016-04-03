@@ -9,15 +9,19 @@ import java.security.Key;
 
 public class Crypto {
 
+	
+	// on definit l'algo de cryptage et la clé pour
 	 private static final String ALGORITHM = "AES";
 	    private static final String KEY = "1Hbfh667adfDEJ78";
 	    
+	    // on génére une clé 
 	    private static Key generateKey() throws Exception 
 	    {
 	        Key key = new SecretKeySpec(Crypto.KEY.getBytes(),Crypto.ALGORITHM);
 	        return key;
 	    }
 	    
+	    // on crypte la chaine passé en paramétre
 	    public static String encrypt(String value) throws Exception
 	    {
 	        Key key = generateKey();

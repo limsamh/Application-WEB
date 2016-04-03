@@ -1,20 +1,17 @@
-<%@page import="com.neko.model.Compte"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%@page import="com.neko.dao.ChatDaoImpl"%>
 <%@page import="java.util.Date"%>
 <%@page import="com.neko.model.Chat"%>
+<%@page import="com.neko.model.Compte"%>
 <%@page import="java.util.List"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<html dir="ltr" lang="en-US"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="css/style3.css" rel="stylesheet" type="text/css" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-
-
 
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
@@ -22,7 +19,7 @@
 	
 </script>
 
-<title>Dashboard</title>
+<title>Home</title>
 </head>
 
 <body>
@@ -32,10 +29,10 @@
 	<div class="nav">
 		<ul>
 			<li><a href="Acceuil.jsp">Accueil</a></li>
-			<li><a class="active" href=#>Dashboard</a></li>
+			<li><a class="active" href=#>Chats</a></li>
+			<li><a href="#">Astuces</a></li>
 			<li><a href="#">Aide</a></li>
-			
-			<li class="dropdown">Profil
+			<li class="dropdown"><a href="#">Profil</a>
 			<div class="dropdown-content">
 				<ul>
 					<li><a href=#>Modifier</a></li>
@@ -58,8 +55,17 @@
 
 
 				<b> Bienvenu <%=user.getLogin()%></b>
-			<p>
-			<h1 align="center">Liste des Chats</h1>
+				
+			<form action=# method="POST">
+			Rechercher chat  <input type="text" name="rechercheChat" class="rechercheChat"
+				placeholder="Nom du chat">
+			<button type="submit">Valider</button>
+			
+		</form>
+			
+				
+				
+			<h1 align="center">Liste des chats</h1>
 			<table>
 				<thead>
 					<tr>
@@ -76,7 +82,6 @@
 
 					<%
 						Chat c = new Chat();
-
 						List<Chat> list = c.lis();
 						for (Chat u : list) {
 					%>
@@ -100,10 +105,6 @@
 		</div>
 	</center>
 	
-	<!-- Javascript -->
-	<script src="js/jquery-1.8.2.min.js"></script>
-	<script src="js/supersized.3.2.7.min.js"></script>
-	<script src="js/supersized-init.js"></script>
-	<script src="js/scripts.js"></script>
+
 </body>
 </html>

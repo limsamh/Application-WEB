@@ -1,6 +1,8 @@
 package com.neko.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +22,7 @@ public class LoginServlet extends HttpServlet
 	public void doPost (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		 String message;
-		 PrintWriter out = res.getWriter();
+		 
 		
  /*
      * Récupération des données saisies, envoyées en tant que paramètres de
@@ -30,13 +32,14 @@ public class LoginServlet extends HttpServlet
 		String login = req.getParameter("login");
 		String motdepasse = req.getParameter("motdepasse");
 		LoginService loginService = new LoginService();
+		PrintWriter out1 = res.getWriter();
 		
 	try {
 			motdepasse = Crypto.encrypt(motdepasse);
 			
 	} catch (Exception e) {
 		}
-		
+	
 		
 		try {
 			boolean result = loginService.seconnecter(login, motdepasse);
@@ -44,21 +47,33 @@ public class LoginServlet extends HttpServlet
 		
 		if (result == true)
 		{
-	req.getSession().setAttribute("user", user);
-			res.sendRedirect("home.jsp");		
-
+			HttpSession session = req.getSession(true);
+			session.setAttribute("user", user);
+			
+			
+			req.getRequestDispatcher("home.jsp").forward(req, res);
 			
 //		this.getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
 		}else
 		{
-			req.getSession().setAttribute("user", "user");
-			res.sendRedirect("login.jsp");
-			 throw new Exception( "Login ou mot de passe incorrect" );
+			
+			
+			res.setContentType( "text/html" );
+		  
+		    out1.println("<div style='font-size:30px; color:red'>"
+			          +"login et mot de passe incorrect "+"</div>");
+			 RequestDispatcher view =
+			    req.getRequestDispatcher("login.jsp");
+			 view.include(req, res);
+//			 throw new Exception( "Login ou mot de passe incorrect" );
 	    }
 		}
 		catch(Exception e)
 		{
 			System.out.println("blallaalall"+e.getMessage());
+		}finally 
+		{
+			out1.close();
 		}
 }
 }
