@@ -5,6 +5,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.neko.service.Crypto;
 import com.neko.service.LoginService;
 import com.neko.model.Compte;
@@ -19,7 +21,7 @@ public class LoginServlet extends HttpServlet
 	{
 		 String message;
 		 PrintWriter out = res.getWriter();
-		 
+		
  /*
      * Récupération des données saisies, envoyées en tant que paramètres de
      * la requête GET générée à la validation du formulaire
@@ -42,13 +44,16 @@ public class LoginServlet extends HttpServlet
 		
 		if (result == true)
 		{
-		req.getSession().setAttribute("user", user);
-			res.sendRedirect("home.jsp");
+	req.getSession().setAttribute("user", user);
+			res.sendRedirect("home.jsp");		
+
 			
-//			this.getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
+//		this.getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
 		}else
 		{
-			message = "Informations non valides";
+			req.getSession().setAttribute("user", "user");
+			res.sendRedirect("login.jsp");
+			 throw new Exception( "Login ou mot de passe incorrect" );
 	    }
 		}
 		catch(Exception e)

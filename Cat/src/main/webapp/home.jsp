@@ -65,7 +65,7 @@
 					<tr>
 						<th>Image</th>
 						<th>Nom français</th>
-						<th>nom japonnais</th>
+						<th>nom japonais</th>
 						<th>niveau</th>
 						<th>description</th>
 						<th>caractere</th>
