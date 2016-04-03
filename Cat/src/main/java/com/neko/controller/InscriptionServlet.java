@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.neko.service.InscriptionService;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 
 public class InscriptionServlet extends HttpServlet
@@ -34,8 +36,15 @@ public class InscriptionServlet extends HttpServlet
 	             out.println("<h1> Bienvenue</h1> "+ login );
 	             out.println("<br/>Connectez-vous avec vos nouveaux identifiants <br/>"
 	             		+ "<a href=login.jsp>Connexion</a>");
-	         }else{
-	        	 throw new Exception( "Merci de saisir votre mot de passe." );
+	         }else
+	         {
+	        	 res.setContentType( "text/html" );
+	   		  
+	 		    out.println("<div style='font-size:30px; color:red'>"
+	 			          +"login non disponible essayer un autre "+"</div>");
+	 			 RequestDispatcher view =
+	 			    req.getRequestDispatcher("inscription.jsp");
+	 			 view.include(req, res);
 		}
 	
 		} catch (Exception e) {

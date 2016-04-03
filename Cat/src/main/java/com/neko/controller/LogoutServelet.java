@@ -17,11 +17,11 @@ public class LogoutServelet extends HttpServlet
 	{
 		res.setContentType("text/html");  
 		PrintWriter out=res.getWriter();  
-		
-		req.getRequestDispatcher("logout.jsp").include(req, res);  
-		
 		HttpSession session=req.getSession();  
 		session.invalidate();  
+		req.getRequestDispatcher("logout.jsp").include(req, res);  
+		
+		
 	}
 
 }
