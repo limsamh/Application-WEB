@@ -3,23 +3,25 @@ package com.neko.service;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import com.neko.model.Compte;
 import com.neko.model.Utilisateur;
 import com.neko.util.HibernateUtil;
 public class LoginService 
 {
 	
-	public Utilisateur recupererUtilisateur(String login)
+	public Compte recupererUtilisateur(String login)
 	{
 		
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
-		Utilisateur user = null;
+		Compte user = null;
 		
 		try{
 			
-			Query sql = session.createQuery("from Utilisateur where login='"+login+"'");
+			Query sql = session.createQuery("from Compte where login='"+login+"'");
 			
-			user = (Utilisateur) sql.uniqueResult();
+			user = (Compte) sql.uniqueResult();
 			tx.commit();
 		} 
 		catch (Exception e)
@@ -40,9 +42,9 @@ public class LoginService
 	
 	public boolean seconnecter (String login, String motdepasse)
 	{
-		Utilisateur user =recupererUtilisateur(login);
+		Compte user =recupererUtilisateur(login);
 		
-		if (user != null && user.getLogin().equals(login) && user.getModepasse().equals(motdepasse))
+		if (user != null && user.getLogin().equals(login) && user.getMotdepasse().equals(motdepasse))
 		{
 			return true;
 		}else

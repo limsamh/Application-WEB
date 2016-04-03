@@ -1,34 +1,37 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 31 mars 2016 00:28:38 by Hibernate Tools 4.3.1.Final -->
+<!-- Generated 2 avr. 2016 23:22:50 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
-    <class name="com.neko.model.Chat" table="chat" catalog="bd" optimistic-lock="version">
+    <class name="com.neko.model.Chat" table="chat" catalog="chatbd" optimistic-lock="version">
         <id name="nomChat" type="string">
-            <column name="nom_chat" length="100" />
+            <column name="nom_chat" length="30" />
             <generator class="assigned" />
         </id>
-        <property name="nomJaponnais" type="string">
-            <column name="nom_japonnais" length="100" not-null="true" />
+        <many-to-one name="compte" class="com.neko.model.Compte" fetch="select">
+            <column name="login" length="20" />
+        </many-to-one>
+        <property name="nomJaponais" type="string">
+            <column name="nom_japonais" length="30" not-null="true" />
         </property>
-        <property name="couleur" type="string">
-            <column name="couleur" length="50" not-null="true" />
+        <property name="description" type="string">
+            <column name="description" length="100" not-null="true" />
         </property>
         <property name="caractere" type="string">
-            <column name="caractere" length="30" not-null="true" />
+            <column name="caractere" length="40" not-null="true" />
         </property>
         <property name="niveau" type="int">
             <column name="niveau" not-null="true" />
         </property>
         <property name="image" type="string">
-            <column name="image" length="100" not-null="true" />
+            <column name="image" length="40" not-null="true" />
         </property>
-        <property name="description" type="string">
-            <column name="description" length="300" not-null="true" />
+        <property name="typeChat" type="int">
+            <column name="type_chat" not-null="true" />
         </property>
         <set name="astuceses" table="astuces" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="nom_chat" length="100" not-null="true" />
+                <column name="nom_chat" length="30" not-null="true" />
             </key>
             <one-to-many class="com.neko.model.Astuces" />
         </set>

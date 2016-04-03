@@ -27,30 +27,30 @@
 		<div class="nav">
 			<ul>
 				<li><a href="Acceuil.jsp">Accueil</a></li>
-				<li><a href="#">Aide</a></li>
+				<li><a href="About.jsp">A propos</a></li>
 				<li><a class="active" href="login.jsp">Connexion</a></li>
 			</ul>
 		</div>
 	</header>
 	<!-- Fin barre de navigation -->
 
+	<!-- Formulaire pour la connexion -->
 	<div class="page-container">
 		<h1>Authentification</h1>
 		<form action="LoginServlet" method="post">
 			<input type="text" name="login" class="username"
 				placeholder="Username"> <input type="password"
 				name="motdepasse" class="password" placeholder="Password">
-			<button type="submit">Valider</button>
+			<button type="submit">Submit</button>
 			<div class="error">
 				<span>+</span>
 			</div>
 			<br /> <span> Nouvel utilisateur?  <a href="inscription.jsp"
-				style="margin-left: 30px;">Inscription</a></span>
+				style="margin-left: 30px;">Inscrivez-vous ici ?</a></span>
 		</form>
 
 	</div>
 
-	
 
 	<!-- Javascript -->
 	<script src="js/jquery-1.8.2.min.js"></script>

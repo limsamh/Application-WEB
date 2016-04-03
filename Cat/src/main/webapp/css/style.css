@@ -32,4 +32,14 @@ border:solid 1px;
 padding: 5px;
 width: max-content;
 }
-
+#texte p{
+	float: left;
+	font-size: 1.4em;
+	
+	color: white;
+	
+	margin-right: 0.1em;
+	margin-top: 5.15em;
+   text-align: justify;
+	line-height: 1.7em;
+}

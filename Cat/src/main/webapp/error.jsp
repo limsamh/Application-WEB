@@ -14,7 +14,7 @@
 		<div class="nav">
 			<ul>
 				<li><a href="Acceuil.jsp">Accueil</a></li>
-				<li><a href="#">Aide</a></li>
+				<li><a href="About.jsp">A propos</a></li>
 				<li><a href="login.jsp">Connexion</a></li>
 			</ul>
 		</div>
