@@ -19,7 +19,17 @@
         <url-pattern>/InscriptionServlet</url-pattern>
     </servlet-mapping>
     
-    
+    <servlet>  
+    <display-name>LogoutServelet</display-name>  
+    <servlet-name>LogoutServelet</servlet-name>  
+    <servlet-class>com.neko.controller.LogoutServelet</servlet-class>  
+  </servlet>  
+  
+   <servlet-mapping>  
+    <servlet-name>LogoutServelet</servlet-name>  
+    <url-pattern>/LogoutServelet</url-pattern>  
+  </servlet-mapping>  
+  
    <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>

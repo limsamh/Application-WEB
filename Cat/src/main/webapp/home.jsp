@@ -6,6 +6,7 @@
 <%@page import="com.neko.model.Chat"%>
 <%@page import="com.neko.model.Compte"%>
 <%@page import="java.util.List"%>
+<%@page import="com.neko.controller.LogoutServelet" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html dir="ltr" lang="en-US"><head>
@@ -36,7 +37,7 @@
 			<div class="dropdown-content">
 				<ul>
 					<li><a href=#>Modifier</a></li>
-					<li><a href="logout.jsp">Deconnexion</a></li>
+					<li><a href="LogoutServelet">Deconnexion</a></li>
 				</ul>
 			</div>
 			</li>
