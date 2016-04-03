@@ -14,6 +14,9 @@ public class InscriptionServlet extends HttpServlet
 	{
 		String login = req.getParameter("login");
 		String motdepasse = req.getParameter("motdepasse");
+		String email = req.getParameter("email");
+		
+		//en attente d'implémentation
 		 PrintWriter out = res.getWriter();
 		Utilisateur use = new Utilisateur(login, motdepasse);
 		

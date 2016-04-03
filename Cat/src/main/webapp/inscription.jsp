@@ -1,27 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE>
-<!--[if IE 8 ]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9 ]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
-<html>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Inscription</title>
-<!--[if lt IE 9]>
-<script src="js/html5shiv.js"></script>
-<![endif]-->
+<!-- CSS -->
 
 <link href="css/style3.css" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-
-
 <link href="css/reset.css" rel="stylesheet" type="text/css" />
 <link href="css/supersized.css" rel="stylesheet" type="text/css" />
 <link href="css/style2.css" rel="stylesheet" type="text/css" />
 
 
-
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
 </head>
 <body>
@@ -37,69 +32,27 @@
   </header>
 <!-- Fin barre de navigation -->
 
+  <!-- Formulaire d'inscription -->
+  	<div class="page-container">
+		<h1>Inscription</h1>
+		<form action="InscriptionServlet" method="POST">
+			<input type="text" name="login" class="username"
+				placeholder="Username"> <input type="password"
+				name="motdepasse" class="password" placeholder="Password">
+				<input placeholder="email" id="email" name="email" data-ideal="required email" type="email"/>
+			<div class="insc"><button type="submit">Valider</button></div>
+			<div class="insc1"><button id="reset" type="button">Reset</button></div>
+			<div class="error">
+				<span>+</span>
+			</div>
+		</form>
 
-<div class="row">
-
-  <div class="eightcol last">
-
-    <!-- Formulaire d'inscription -->
-
-    <form action="InscriptionServlet" method="POST">
-
-        <section name="Inscription">
-
-          <div><label>Username:</label><input id="username" name="login" type="text" required=""/></div>
-          <div><label>Password:</label><input id="pass1" name="motdepasse" type="password" required=""/></div>
-          <div><label>E-mail:</label><input id="email" name="email" data-ideal="required email" type="email"/></div>
-        </section>
-
-      <div><hr/></div>
-
-      <div>
-        <button type="submit">Submit</button>
-        <button id="reset" type="button">Reset</button>
-      </div>
-
-    </form>
-
-    <!-- End Form -->
-
-  </div>
-
-</div>
-
- <!-- Scripts  -->
-
-<script type="text/javascript">
-var options = {
-
-	onFail: function(){
-		alert( $myform.getInvalid().length +' invalid fields.' )
-	},
-
-	inputs: {
-		'password': {
-			filters: 'required pass',
-		},
-		'username': {
-			filters: 'required username',
-			data: {
-			//ajax: { url:'validate.php' }
-			}
-		},
-		
-	}
-	
-};
-
-var $myform = $('#my-form').idealforms(options).data('idealforms');
-
-$('#reset').click(function(){
-	$myform.reset().fresh().focusFirst()
-});
-
-$myform.focusFirst();
-</script>
+	</div>
+	<!-- Javascript -->
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/supersized.3.2.7.min.js"></script>
+	<script src="js/supersized-init.js"></script>
+	<script src="js/scripts.js"></script>
 
 </body>
 </html>

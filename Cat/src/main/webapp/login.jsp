@@ -40,40 +40,17 @@
 			<input type="text" name="login" class="username"
 				placeholder="Username"> <input type="password"
 				name="motdepasse" class="password" placeholder="Password">
-			<button type="submit">Submit</button>
+			<button type="submit">Valider</button>
 			<div class="error">
 				<span>+</span>
 			</div>
 			<br /> <span> Nouvel utilisateur?  <a href="inscription.jsp"
-				style="margin-left: 30px;">Inscrivez-vous ici ?</a></span>
+				style="margin-left: 30px;">Inscription</a></span>
 		</form>
 
 	</div>
 
-	<!-- 
-	<form method="post" action="LoginServlet">
-		<div style="padding: 100px 0 0 250px;">
-			<div id="login-box">
-				<h2>Authentification</h2>
-				<div id="login-box-name" style="margin-top: 20px;">Login:</div>
-				<div id="login-box-field" style="margin-top: 20px;">
-					<input name="login" class="form-login" title="login" value=""
-						size="30" maxlength="50" required="" />
-				</div>
-				<div id="login-box-name">Password:</div>
-				<div id="login-box-field">
-					<input name="motdepasse" type="password" class="form-login"
-						title="motdepasse" value="" size="30" maxlength="48" required="" />
-				</div>
-				<br /> <span class="login-box-options"> Nouvel utilisateur? 
-					<a href="inscription.jsp" style="margin-left: 30px;">Inscrivez-vous
-						ici ?</a>
-				</span> <br /> <br /> <input style="margin-left: 100px;" type="submit"
-					value="Valider" />
-			</div>
-		</div>
-	</form>
--->
+	
 
 	<!-- Javascript -->
 	<script src="js/jquery-1.8.2.min.js"></script>
