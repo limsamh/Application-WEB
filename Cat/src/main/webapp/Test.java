@@ -6,10 +6,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import com.neko.model.Utilisateur;
 import com.neko.util.HibernateUtil;
+import java.security.Key;
 
 import java.util.*;
 
 import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 /**
  * 
  * Classe permettant de faire un cryptage grace à Blowfish
@@ -41,7 +43,7 @@ public class Test {
 	 * @param password
 	 * @param key
 	 */
-	public static decrypt(String password,String key){
+	public static String decrypt(String password,String key){
 		try
 		{
 
@@ -69,7 +71,7 @@ public class Test {
 		try {
 			List<Utilisateur> result = (List<Utilisateur>) session.createQuery("from Utilisateur").list();
 
-			System.out.println(result.get(0).getLogin());
+			System.out.println(result.get(0).getIdutilisateur());
 			System.out.println(decrypt("toot", "lol"));
 		}
 
